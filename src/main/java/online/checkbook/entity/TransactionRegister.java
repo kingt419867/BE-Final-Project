@@ -39,7 +39,7 @@ public class TransactionRegister {
 	@ToString.Exclude
 	@ManyToOne
 	@JoinColumn(name = "account_id", nullable = false)
-	private AccountList account;
+	private AccountList accountList;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
@@ -49,5 +49,5 @@ public class TransactionRegister {
 			joinColumns = @JoinColumn(name = "transaction_id"),
 					inverseJoinColumns = @JoinColumn(name = "type_id")
 			)
-	private Set<Type> types = new HashSet<>();
+	private Set<TraxType> traxTypes = new HashSet<>();
 } // class

@@ -14,7 +14,7 @@ import lombok.ToString;
 
 @Entity
 @Data
-public class Type {
+public class TraxType {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +24,6 @@ public class Type {
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@ManyToMany(mappedBy = "types")
+	@ManyToMany(mappedBy = "traxTypes")
 	private Set<TransactionRegister> transactions = new HashSet<>();
 } // class
