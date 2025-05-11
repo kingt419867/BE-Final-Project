@@ -140,6 +140,26 @@ public class OnlineCheckbookService {
 		return transactionRegisterDao.findAll().stream().map(trans -> new TransactionRegisterData(trans)).toList(); // Streams all the transactions (This could be VERY long.)
 		//@formatter:on
 	} // retrieveAllTransactions
+
+	@Transactional(readOnly = true)
+	public TransactionRegister retrieveTransactionById(TransactionRegisterData transactionRegisterData) {
+		Long transactionId = transactionRegisterData.getTransactionId();
+		return findTransactionById(transactionId);
+	} // retrieveTransactionById
+
+	@Transactional(readOnly = true)
+	public TransactionRegisterData retrieveTransactionById(Long transactionId) {
+
+		return new TransactionRegisterData(findTransactionById(transactionId));
+	} // retrieveTransactionById
+
+	public void deleteTransactionById(Long transactionId) {
+		TransactionRegister transactionRegister = findTransactionById(transactionId);
+		transactionRegisterDao.deleteById(transactionId);
+	} // deleteTransactionById
+	
+	
+	
 	
 	
 	

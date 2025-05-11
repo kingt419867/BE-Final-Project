@@ -6,6 +6,3 @@ INSERT INTO trax_type (type_code) VALUES ('DEP');
 INSERT INTO trax_type (type_code) VALUES ('EFT');
 INSERT INTO trax_type (type_code) VALUES ('ATM');
 INSERT INTO trax_type (type_code) VALUES ('ADJ');
-INSERT INTO account_list (account_name) VALUES ('test');
-INSERT INTO account_list (account_number) VALUES ('1234A');
-INSERT INTO account_list (account_contact) VALUES ('John Doe');

@@ -1,9 +1,11 @@
 package online.checkbook.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -80,5 +82,27 @@ public class OnlineCheckbookController {
 		log.info("retrieveAllTransactions called.");
 		return onlineCheckbookService.retrieveAllTransactions();
 	} // retrieveAllTransactions
+	
+	@GetMapping("/transactionRegister/{transactionId}")
+	public TransactionRegisterData retrieveTransactionById(@PathVariable Long transactionId) { // removed from () for testing:  , @RequestBody TransactionRegisterData transactionRegisterData
+		//transactionRegisterData.setTransactionId(transactionId);
+		log.info("retrieveTransactionById called. Retrieving transaction {}", transactionId);
+		return onlineCheckbookService.retrieveTransactionById(transactionId);
+	} // retrieveTransactionById
+	
+	@PutMapping("/transactionRegister/{transactionId}")
+	public TransactionRegisterData updateTransactionById(@PathVariable Long transactionId, @RequestBody TransactionRegisterData transactionRegisterData) {
+		transactionRegisterData.setTransactionId(transactionId);
+		log.info("updateTransactionById called. Modifying transaction {}", transactionRegisterData);
+		return onlineCheckbookService.saveTransaction(transactionRegisterData);
+	} // updateTransactionById
+	
+	@DeleteMapping("/transactionRegister/{transactionId}")
+	public Map<String, String> deleteTransactionById(@PathVariable Long transactionId) {
+		//transactionRegisterData.setTransactionId(transactionId);
+		log.info("deleteTransactionById called. Deleting transaction {}", transactionId);
+		onlineCheckbookService.deleteTransactionById(transactionId);
+		return Map.of("message", "Transaction " + transactionId + " deleted.");
+	} // updateTransactionById
 	
 } // class

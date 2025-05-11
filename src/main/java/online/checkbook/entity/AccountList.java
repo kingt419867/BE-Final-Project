@@ -26,6 +26,6 @@ public class AccountList {
 	@EqualsAndHashCode.Exclude
 	private String accountContact;
 	
-	@OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
+	@OneToMany(mappedBy = "accountList", cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private Set<TransactionRegister> transactions = new HashSet<>();
 } // class

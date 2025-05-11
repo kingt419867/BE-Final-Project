@@ -1,0 +1,57 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2025-05-10T20:07:03.503-04:00  INFO 33032 --- [           main] o.c.Online_Checkbook_Application         : Starting Online_Checkbook_Application using Java 21.0.5 with PID 33032 (C:\Users\kingt\eclipse-workspace\TimKing-FinalProject_Online-CheckBook\target\classes started by kingt in C:\Users\kingt\eclipse-workspace\TimKing-FinalProject_Online-CheckBook)
+2025-05-10T20:07:03.512-04:00  INFO 33032 --- [           main] o.c.Online_Checkbook_Application         : No active profile set, falling back to 1 default profile: "default"
+2025-05-10T20:07:05.266-04:00  INFO 33032 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-10T20:07:05.403-04:00  INFO 33032 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118 ms. Found 3 JPA repository interfaces.
+2025-05-10T20:07:06.370-04:00  INFO 33032 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-10T20:07:06.391-04:00  INFO 33032 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-10T20:07:06.392-04:00  INFO 33032 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-10T20:07:06.513-04:00  INFO 33032 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-10T20:07:06.515-04:00  INFO 33032 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2900 ms
+2025-05-10T20:07:06.881-04:00  INFO 33032 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-10T20:07:07.006-04:00  INFO 33032 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-10T20:07:07.080-04:00  INFO 33032 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-10T20:07:07.631-04:00  INFO 33032 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-10T20:07:07.698-04:00  INFO 33032 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-10T20:07:08.346-04:00  INFO 33032 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1533338c
+2025-05-10T20:07:08.349-04:00  INFO 33032 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-10T20:07:08.493-04:00  INFO 33032 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-10T20:07:09.971-04:00  INFO 33032 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-10T20:07:09.977-04:00  INFO 33032 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-10T20:07:10.871-04:00  WARN 33032 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-10T20:07:10.968-04:00  INFO 33032 --- [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-10T20:07:11.817-04:00  INFO 33032 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-10T20:07:11.835-04:00  INFO 33032 --- [           main] o.c.Online_Checkbook_Application         : Started Online_Checkbook_Application in 9.128 seconds (process running for 9.858)
+2025-05-10T20:07:46.169-04:00  INFO 33032 --- [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-10T20:07:46.169-04:00  INFO 33032 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-10T20:07:46.171-04:00  INFO 33032 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-10T20:07:46.222-04:00  INFO 33032 --- [nio-8080-exec-2] o.c.c.OnlineCheckbookController          : retrieveAllTransactionTypes called.
+Hibernate: select tt1_0.type_id,tt1_0.type_code from trax_type tt1_0
+2025-05-10T20:08:49.030-04:00  INFO 33032 --- [nio-8080-exec-3] o.c.c.OnlineCheckbookController          : Creating type TypeData(typeId=null, typeCode=test)
+Hibernate: insert into trax_type (type_code) values (?)
+2025-05-10T20:09:00.602-04:00  INFO 33032 --- [nio-8080-exec-6] o.c.c.OnlineCheckbookController          : retrieveAllTransactionTypes called.
+Hibernate: select tt1_0.type_id,tt1_0.type_code from trax_type tt1_0
+2025-05-10T20:09:24.544-04:00  INFO 33032 --- [nio-8080-exec-8] o.c.c.OnlineCheckbookController          : retrieveAllAccounts called.
+Hibernate: select al1_0.account_id,al1_0.account_contact,al1_0.account_name,al1_0.account_number from account_list al1_0
+2025-05-10T20:09:35.556-04:00  INFO 33032 --- [io-8080-exec-10] o.c.c.OnlineCheckbookController          : Creating account AccountListData(accountId=1, accountName=WalMart, accountNumber=null, accountContact=null, transactions=[])
+Hibernate: select al1_0.account_id,al1_0.account_contact,al1_0.account_name,al1_0.account_number from account_list al1_0 where al1_0.account_id=?
+2025-05-10T20:09:35.582-04:00 ERROR 33032 --- [io-8080-exec-10] o.c.controller.error.GlobalErrorHandler  : Exception: java.util.NoSuchElementException: Account 1 was not found.
+2025-05-10T20:09:51.453-04:00  INFO 33032 --- [nio-8080-exec-2] o.c.c.OnlineCheckbookController          : Creating account AccountListData(accountId=1, accountName=WalMart, accountNumber=null, accountContact=null, transactions=[])
+Hibernate: select al1_0.account_id,al1_0.account_contact,al1_0.account_name,al1_0.account_number from account_list al1_0 where al1_0.account_id=?
+2025-05-10T20:09:51.461-04:00 ERROR 33032 --- [nio-8080-exec-2] o.c.controller.error.GlobalErrorHandler  : Exception: java.util.NoSuchElementException: Account 1 was not found.
