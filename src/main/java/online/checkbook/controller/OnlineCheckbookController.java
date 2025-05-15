@@ -77,6 +77,13 @@ public class OnlineCheckbookController {
 		return onlineCheckbookService.saveTransaction(transactionRegisterData);
 	} // insertTransaction
 	
+	@PostMapping("/transactionRegister")
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public TransactionRegisterData insertCombinedTransaction(@RequestBody TransactionRegisterData transactionRegisterData) {
+		log.info("Creating transaction {}", transactionRegisterData);
+		return onlineCheckbookService.saveTransaction(transactionRegisterData);
+	} // insertCombinedTransaction
+	
 	@GetMapping("/transactionRegister")
 	public List<TransactionRegisterData> retrieveAllTransactions() {
 		log.info("retrieveAllTransactions called.");
