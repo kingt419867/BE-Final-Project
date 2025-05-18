@@ -113,7 +113,7 @@ public class OnlineCheckbookController {
 		return Map.of("message", "Transaction " + transactionId + " deleted.");
 	} // updateTransactionById
 	
-	@GetMapping("/transactionRegister")
+	@GetMapping("/getAccountBalance")
 	public GetAccountBalance getAccountBalance() {
 		return onlineCheckbookService.getAccountBalance();
 	} // getAccountBalance
