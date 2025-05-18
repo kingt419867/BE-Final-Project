@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 import online.checkbook.controller.model.AccountListData;
+import online.checkbook.controller.model.GetAccountBalance;
 import online.checkbook.controller.model.TransactionRegisterData;
 import online.checkbook.controller.model.TypeData;
 import online.checkbook.service.OnlineCheckbookService;
@@ -70,18 +71,18 @@ public class OnlineCheckbookController {
 	
 // TransactionRegister class mapping
 	
-	@PostMapping("/transactionRegister")
-	@ResponseStatus(code = HttpStatus.CREATED)
-	public TransactionRegisterData insertTransaction(@RequestBody TransactionRegisterData transactionRegisterData) {
-		log.info("Creating transaction {}", transactionRegisterData);
-		return onlineCheckbookService.saveTransaction(transactionRegisterData);
-	} // insertTransaction
+//	@PostMapping("/transactionRegister")
+//	@ResponseStatus(code = HttpStatus.CREATED)
+//	public TransactionRegisterData insertTransaction(@RequestBody TransactionRegisterData transactionRegisterData) {
+//		log.info("Creating transaction {}", transactionRegisterData);
+//		return onlineCheckbookService.saveTransaction(transactionRegisterData);
+//	} // insertTransaction
 	
 	@PostMapping("/transactionRegister")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public TransactionRegisterData insertCombinedTransaction(@RequestBody TransactionRegisterData transactionRegisterData) {
-		log.info("Creating transaction {}", transactionRegisterData);
-		return onlineCheckbookService.saveTransaction(transactionRegisterData);
+	public TransactionRegisterData insertCombinedTransaction(@RequestBody TransactionRegisterData transactionRegisterData, @RequestBody AccountListData accountListData) { // Do I need to make this a List, or Set, or something?
+		log.info("Creating transaction {}", transactionRegisterData);														// This needs to pull in elements from all 3 tables, at once.
+		return onlineCheckbookService.saveCombinedTransaction(transactionRegisterData, accountListData);
 	} // insertCombinedTransaction
 	
 	@GetMapping("/transactionRegister")
@@ -111,5 +112,10 @@ public class OnlineCheckbookController {
 		onlineCheckbookService.deleteTransactionById(transactionId);
 		return Map.of("message", "Transaction " + transactionId + " deleted.");
 	} // updateTransactionById
+	
+	@GetMapping("/transactionRegister")
+	public GetAccountBalance getAccountBalance() {
+		return onlineCheckbookService.getAccountBalance();
+	} // getAccountBalance
 	
 } // class

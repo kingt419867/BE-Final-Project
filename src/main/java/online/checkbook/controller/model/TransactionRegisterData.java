@@ -21,7 +21,7 @@ public class TransactionRegisterData {
 	private BigDecimal depositAmount;
 	private Long checkNumber;
 	private AccountList accountList;
-	
+	//private Set<AccountListData> accounts = new HashSet<>();
 	private Set<TypeData> traxTypes = new HashSet<>();
 	
 	public TransactionRegisterData(TransactionRegister transactionRegister) {
@@ -31,6 +31,10 @@ public class TransactionRegisterData {
 		paymentAmount = transactionRegister.getPaymentAmount();
 		depositAmount = transactionRegister.getDepositAmount();
 		checkNumber = transactionRegister.getCheckNumber();
+		
+//		for(AccountList accountList : transactionRegister.getAccountList()) {
+//			accounts.add(new AccountListData(accountList));
+//		} // for
 		
 		for(TraxType traxType : transactionRegister.getTraxTypes()) {
 			traxTypes.add(new TypeData(traxType));

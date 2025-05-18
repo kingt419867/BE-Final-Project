@@ -6,3 +6,6 @@ INSERT INTO trax_type (type_code) VALUES ('DEP');
 INSERT INTO trax_type (type_code) VALUES ('EFT');
 INSERT INTO trax_type (type_code) VALUES ('ATM');
 INSERT INTO trax_type (type_code) VALUES ('ADJ');
+INSERT INTO transaction_register (transaction_date, account_id, payment_amount, deposit_amount) VALUES ('5/10/2025 23:28', 3, 0, 100.00);
+INSERT INTO transaction_register (transaction_date, account_id, payment_amount, deposit_amount) VALUES ('5/11/2025 20:30', 1, 19.99, 0);
+INSERT INTO transaction_register (transaction_date, account_id, payment_amount, deposit_amount) VALUES ('5/12/2025 18:05', 2, 5.95, 0);

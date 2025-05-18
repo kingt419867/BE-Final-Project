@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import online.checkbook.controller.model.AccountListData;
+import online.checkbook.controller.model.GetAccountBalance;
 import online.checkbook.controller.model.TransactionRegisterData;
 import online.checkbook.controller.model.TypeData;
 import online.checkbook.dao.AccountListDao;
@@ -106,9 +107,33 @@ public class OnlineCheckbookService {
 		Long transactionId = transactionRegisterData.getTransactionId();
 		TransactionRegister transactionRegister = findOrCreateTransaction(transactionId);
 		copyTransactionRegisterFields(transactionRegister, transactionRegisterData);
-		
 		return new TransactionRegisterData(transactionRegisterDao.save(transactionRegister));
 	} // saveTransaction
+	
+	@Transactional(readOnly = false)
+	public TransactionRegisterData saveCombinedTransaction(TransactionRegisterData transactionRegisterData, AccountListData accountListData) {
+		Long transactionId = transactionRegisterData.getTransactionId();
+		Long accountId = accountListData.getAccountId();
+		TransactionRegister transactionRegister = findOrCreateTransaction(transactionId);
+		AccountList accountList = findOrCreateAccount(accountId);
+		copyCombinedRegisterFields(transactionRegister, transactionRegisterData, accountList, accountListData);
+//		copyTransactionRegisterFields(transactionRegister, transactionRegisterData);
+//		copyAccountListFields(accountList, accountListData);
+//		CombinedRegister combinedRegister = (new TransactionRegisterData(transactionRegisterDao.save(transactionRegister))) + (new AccountListData(accountListDao.save(accountList)));
+		return new TransactionRegisterData(transactionRegisterDao.save(transactionRegister));
+	} // saveCombinedTransaction
+
+	private void copyCombinedRegisterFields(TransactionRegister transactionRegister, TransactionRegisterData transactionRegisterData, AccountList accountList, AccountListData accountListData) {
+		transactionRegister.setTransactionId(transactionRegisterData.getTransactionId());
+		transactionRegister.setTransactionDate(transactionRegisterData.getTransactionDate());
+		transactionRegister.setVerified(transactionRegisterData.isVerified());
+		transactionRegister.setPaymentAmount(transactionRegisterData.getPaymentAmount());
+		transactionRegister.setDepositAmount(transactionRegisterData.getDepositAmount());
+		transactionRegister.setCheckNumber(transactionRegisterData.getCheckNumber());
+		accountList.setAccountId(accountListData.getAccountId());
+		accountList.setAccountName(accountListData.getAccountName());
+		//transactionRegister.setTraxTypes(transactionRegisterData.getTraxTypes()); // troubleshooting...
+	} // copyCombinedRegisterFields
 
 	private void copyTransactionRegisterFields(TransactionRegister transactionRegister, TransactionRegisterData transactionRegisterData) {
 		transactionRegister.setTransactionId(transactionRegisterData.getTransactionId());
@@ -157,6 +182,11 @@ public class OnlineCheckbookService {
 		TransactionRegister transactionRegister = findTransactionById(transactionId);
 		transactionRegisterDao.deleteById(transactionId);
 	} // deleteTransactionById
+
+// GetAccountBalance
+	public GetAccountBalance getAccountBalance() {
+		return transactionRegisterDao.getAccountBalance();
+	} // GetAccountBalance
 	
 	
 	
